@@ -97,7 +97,7 @@ export const Helper = {
 		const templateProps: DefinationsModel.ITemplateProps = {
 			fileName: answers.fileName,
 			isCustomFileName: answers.isCustomFileName,
-			isFileNameAdd: answers.isFileNameAdd
+			isFileNameAdd: opt.isFileNameAdd
 		};
 
 		if (opt.isCustomFileName) {

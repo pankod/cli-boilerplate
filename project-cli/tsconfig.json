@@ -6,11 +6,18 @@
 		"sourceMap": true,
 		"allowJs": true,
 		"rootDir": ".",
-		"baseUrl": "."
+		"baseUrl": ".",
+		"pretty": true,
+		"types": [
+			"jest",
+			"node"
+		]
 	},
 	"exclude": [
 		"node_modules",
 		"dist"
 	],
-	
+	"include": [
+		"./test/**/*.ts"
+	]
 }

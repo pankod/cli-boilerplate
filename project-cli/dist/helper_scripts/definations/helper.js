@@ -67,7 +67,7 @@ exports.Helper = {
         const templateProps = {
             fileName: answers.fileName,
             isCustomFileName: answers.isCustomFileName,
-            isFileNameAdd: answers.isFileNameAdd
+            isFileNameAdd: opt.isFileNameAdd
         };
         if (opt.isCustomFileName) {
             templateProps.customFileName = opt.customFileName;

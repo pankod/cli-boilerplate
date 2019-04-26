@@ -30,12 +30,6 @@ export const addCollectionQuestion = {
 				}
 			},
 			{
-				default: false,
-				message: 'Do you want to add file name into file?',
-				name: 'isFileNameAdd',
-				type: 'confirm'
-			},
-			{
 				choices: [
 					new inquirer.Separator(),
 					{
@@ -50,8 +44,7 @@ export const addCollectionQuestion = {
 				default: false,
 				message: 'Would you like save file to collection.ts with a custom name ?',
 				name: 'isCustomFileName',
-				type: 'list',
-				when: ({ isFileNameAdd }) => isFileNameAdd
+				type: 'list'
 			},
 			{
 				message: 'Enter custom name',
@@ -62,13 +55,13 @@ export const addCollectionQuestion = {
 		];
 
 		// tslint:disable-next-line:max-line-length
-		const answers: DefinationsModel.IAnswers = await inquirer.prompt<{ fileName: string, isFileNameAdd: boolean, isCustomFileName: boolean, customFileName?: string}>(questions);
+		const answers: DefinationsModel.IAnswers = await inquirer.prompt<{ fileName: string, isCustomFileName: boolean, customFileName?: string}>(questions);
 
 		answers.fileName = answers.fileName.replace(/\b\w/g, foo => foo.toUpperCase());
 
 		const opt: DefinationsModel.ICreateFileOptions = {
 			isCustomFileName: answers.isCustomFileName,
-			isFileNameAdd: answers.isFileNameAdd
+			isFileNameAdd: true
 		};
 
 		if (answers.isCustomFileName) {

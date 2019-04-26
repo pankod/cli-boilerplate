@@ -29,12 +29,6 @@ exports.addCollectionQuestion = {
                 }
             },
             {
-                default: false,
-                message: 'Do you want to add file name into file?',
-                name: 'isFileNameAdd',
-                type: 'confirm'
-            },
-            {
                 choices: [
                     new inquirer.Separator(),
                     {
@@ -49,8 +43,7 @@ exports.addCollectionQuestion = {
                 default: false,
                 message: 'Would you like save file to collection.ts with a custom name ?',
                 name: 'isCustomFileName',
-                type: 'list',
-                when: ({ isFileNameAdd }) => isFileNameAdd
+                type: 'list'
             },
             {
                 message: 'Enter custom name',
@@ -64,7 +57,7 @@ exports.addCollectionQuestion = {
         answers.fileName = answers.fileName.replace(/\b\w/g, foo => foo.toUpperCase());
         const opt = {
             isCustomFileName: answers.isCustomFileName,
-            isFileNameAdd: answers.isFileNameAdd
+            isFileNameAdd: true
         };
         if (answers.isCustomFileName) {
             opt.customFileName = answers.customFileName;
