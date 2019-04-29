@@ -3,7 +3,7 @@ import * as logSymbols from 'log-symbols';
 import * as mustache from 'mustache';
 import * as path from 'path';
 
-import { DefinationsModel } from './Defination';
+import { DefinationsModel } from './defination';
 
 import { Config } from '../../config';
 

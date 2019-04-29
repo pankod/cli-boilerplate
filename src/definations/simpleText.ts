@@ -1,6 +1,6 @@
 import * as inquirer from 'inquirer';
 import { Config } from '../../config';
-import { DefinationsModel } from './Defination';
+import { DefinationsModel } from './defination';
 import { Helper } from './helper';
 
 export const simpleTextQuestion = {
