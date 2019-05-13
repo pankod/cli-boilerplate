@@ -17,7 +17,7 @@ const inquirer = require("inquirer");
 const addCollection_1 = require("./src/definations/addCollection");
 const simpleText_1 = require("./src/definations/simpleText");
 console.clear();
-console.log(chalk.default(figlet.textSync('plater-cli')));
+console.log(chalk.default(figlet.textSync('Pankod CLI Boilerplate')));
 const questions = [
     {
         choices: ['Create simple file', 'Create file and add to collection'],

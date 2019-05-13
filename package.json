@@ -1,5 +1,5 @@
 {
- "name": "plater-cli",
+ "name": "cli-boilerplate",
  "version": "1.0.0",
  "description": "",
  "main": "index.js",
@@ -20,14 +20,14 @@
   "mustache": "^3.0.1"
  },
  "devDependencies": {
-  "@types/node": "^11.13.6",
   "@types/jest": "^23.1.1",
-  "tslint": "^5.16.0",
-  "typescript": "^3.4.3",
+  "@types/node": "^11.13.10",
   "jest": "^23.6.0",
   "jest-cli": "^23.6.0",
   "jest-teamcity": "^1.4.0",
-  "ts-jest": "^23.10.5"
+  "ts-jest": "^23.10.5",
+  "tslint": "^5.16.0",
+  "typescript": "^3.4.3"
  },
  "jest": {
   "testResultsProcessor": "jest-teamcity",
