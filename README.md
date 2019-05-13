@@ -6,7 +6,7 @@
 <br/>
 
 <div align="center">
-Boilerplate for create  project file and content with predefined templates for all type of file extensions.
+CLI boilerplate for create  project file and content with predefined templates for all type of file extensions.
 
 </div>
 <br/>
@@ -90,7 +90,7 @@ Run the following command for compile typescript code anytime you made changes i
 
     More info about [mustache.js](https://github.com/janl/mustache.js)
 
-- Define file path in to config.ts
+- Define file path into config.ts
 
 - You should define new regex keys in order to catch existing content and append new content to spesicific position in the file which is already exist.
 
