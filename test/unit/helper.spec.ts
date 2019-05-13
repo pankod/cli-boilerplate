@@ -1,6 +1,6 @@
 import * as inquirer from 'inquirer';
 import { Config } from '../../config';
-import { DefinationsModel } from '../../src/definations/defination';
+import { DefinationsModel } from '../../src/definations/Defination';
 import { Helper } from '../../src/definations/helper';
 const rimraf = require('rimraf');
 
