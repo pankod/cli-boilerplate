@@ -43,7 +43,7 @@ exports.Helper = {
             fileDir: collectionPath,
             filetoUpdate: fs.readFileSync(path.resolve('', collectionPath), 'utf8'),
             getFileContent: () => exports.Helper.getTemplate(collectionTemplatePath, params.templateProps),
-            message: 'Added to collection',
+            message: 'Added to collection.txt',
             regexKey: /This projects includes files which is specified at the below[.\n]/g
         };
         exports.Helper.replaceContent(replaceParams);
@@ -63,25 +63,16 @@ exports.Helper = {
         exports.Helper.writeFile(writeFileProps);
     },
     createNewAddCollecton: (answers, opt) => {
-        const templatePath = './src/templates/simpleText.mustache';
         const templateProps = {
             fileName: answers.fileName,
             isCustomFileName: answers.isCustomFileName,
-            isFileNameAdd: opt.isFileNameAdd
+            isFileNameAdd: opt.isFileNameAdd,
+            customFileName: opt.customFileName
         };
-        if (opt.isCustomFileName) {
-            templateProps.customFileName = opt.customFileName;
-        }
-        const simpleTextFilePath = `${config_1.Config.filesDir}/${answers.fileName}.txt`;
-        const writeFileProps = {
-            dirPath: simpleTextFilePath,
-            getFileContent: () => exports.Helper.getTemplate(templatePath, templateProps),
-            message: 'Created new file.'
-        };
+        exports.Helper.createSimpleText(templateProps);
         const addCollParams = {
             templateProps
         };
-        exports.Helper.writeFile(writeFileProps);
         exports.Helper.addToCollection(addCollParams);
     }
 };

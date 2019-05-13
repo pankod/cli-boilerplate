@@ -10,13 +10,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const chalk = require("chalk");
-const clear = require("clear");
+/* import * as clear from 'clear'; */
 const program = require("commander");
 const figlet = require("figlet");
 const inquirer = require("inquirer");
 const addCollection_1 = require("./src/definations/addCollection");
 const simpleText_1 = require("./src/definations/simpleText");
-clear();
+console.clear();
 console.log(chalk.default(figlet.textSync('plater-cli')));
 const questions = [
     {

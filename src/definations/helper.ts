@@ -3,7 +3,7 @@ import * as logSymbols from 'log-symbols';
 import * as mustache from 'mustache';
 import * as path from 'path';
 
-import { DefinationsModel } from './defination';
+import { DefinationsModel } from './Defination';
 
 import { Config } from '../../config';
 
@@ -64,7 +64,7 @@ export const Helper = {
 			fileDir: collectionPath,
 			filetoUpdate: fs.readFileSync(path.resolve('', collectionPath), 'utf8'),
 			getFileContent: () => Helper.getTemplate(collectionTemplatePath, params.templateProps),
-			message: 'Added to collection',
+			message: 'Added to collection.txt',
 			regexKey: /This projects includes files which is specified at the below[.\n]/g
 		};
 
@@ -92,30 +92,19 @@ export const Helper = {
 
 	createNewAddCollecton: (answers: DefinationsModel.IAnswers, opt?: DefinationsModel.ICreateFileOptions) => {
 
-		const templatePath = './src/templates/simpleText.mustache';
-
-		const templateProps: DefinationsModel.ITemplateProps = {
+		const templateProps = {
 			fileName: answers.fileName,
 			isCustomFileName: answers.isCustomFileName,
-			isFileNameAdd: opt.isFileNameAdd
+			isFileNameAdd: opt.isFileNameAdd,
+			customFileName: opt.customFileName
 		};
 
-		if (opt.isCustomFileName) {
-			templateProps.customFileName = opt.customFileName;
-		}
+		Helper.createSimpleText(templateProps);
 
-		const simpleTextFilePath = `${Config.filesDir}/${answers.fileName}.txt`;
-
-		const writeFileProps: DefinationsModel.IWriteFile = {
-			dirPath: simpleTextFilePath,
-			getFileContent: () => Helper.getTemplate(templatePath, templateProps),
-			message: 'Created new file.'
-		};
 		const addCollParams = {
 			templateProps
 		};
 
-		Helper.writeFile(writeFileProps);
 		Helper.addToCollection(addCollParams);
 
 	}

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import * as chalk from 'chalk';
-import * as clear from 'clear';
+/* import * as clear from 'clear'; */
 import * as program from 'commander';
 import * as figlet from 'figlet';
 import * as inquirer from 'inquirer';
@@ -9,7 +9,7 @@ import * as inquirer from 'inquirer';
 import { addCollectionQuestion } from './src/definations/addCollection';
 import { simpleTextQuestion } from './src/definations/simpleText';
 
-clear();
+console.clear();
 
 console.log(
 	chalk.default(

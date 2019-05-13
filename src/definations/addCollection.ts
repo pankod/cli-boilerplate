@@ -1,6 +1,6 @@
 import * as inquirer from 'inquirer';
 import { Config } from '../../config';
-import { DefinationsModel } from './defination';
+import { DefinationsModel } from './Defination';
 import { Helper } from './helper';
 
 export const addCollectionQuestion = {
@@ -20,13 +20,13 @@ export const addCollectionQuestion = {
 								true
 							)
 						) {
-							return 'Already added. Use new file name';
+							return 'This file name already used before, enter new name.';
 						}
 
 						return true;
 					}
 
-					return 'Cannot be empty';
+					return 'Can not be empty';
 				}
 			},
 			{
@@ -42,7 +42,7 @@ export const addCollectionQuestion = {
 					}
 				],
 				default: false,
-				message: 'Would you like save file to collection.ts with a custom name ?',
+				message: 'Would you like save file to collection.ts with a custom name?',
 				name: 'isCustomFileName',
 				type: 'list'
 			},

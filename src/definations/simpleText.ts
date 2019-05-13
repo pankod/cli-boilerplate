@@ -1,6 +1,6 @@
 import * as inquirer from 'inquirer';
 import { Config } from '../../config';
-import { DefinationsModel } from './defination';
+import { DefinationsModel } from './Defination';
 import { Helper } from './helper';
 
 export const simpleTextQuestion = {
@@ -19,18 +19,18 @@ export const simpleTextQuestion = {
 								true
 							)
 						) {
-							return 'Already added. Use new file name';
+							return 'This file name already used before, enter new name.';
 						}
 
 						return true;
 					}
 
-					return 'Cannot be empty';
+					return 'Can not be empty';
 				}
 			},
 			{
 				default: false,
-				message: 'Do you want to add file name into file',
+				message: 'Do you want to add file name into file content ?',
 				name: 'isFileNameAdd',
 				type: 'confirm'
 			}

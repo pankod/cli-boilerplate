@@ -21,11 +21,11 @@ exports.addCollectionQuestion = {
                 validate(val) {
                     if (val.length) {
                         if (helper_1.Helper.isAlreadyExist(config_1.Config.filesDir, val, true)) {
-                            return 'Already added. Use new file name';
+                            return 'This file name already used before, enter new name.';
                         }
                         return true;
                     }
-                    return 'Cannot be empty';
+                    return 'Can not be empty';
                 }
             },
             {
@@ -41,7 +41,7 @@ exports.addCollectionQuestion = {
                     }
                 ],
                 default: false,
-                message: 'Would you like save file to collection.ts with a custom name ?',
+                message: 'Would you like save file to collection.ts with a custom name?',
                 name: 'isCustomFileName',
                 type: 'list'
             },
