@@ -43,7 +43,7 @@ exports.Helper = {
             fileDir: collectionPath,
             filetoUpdate: fs.readFileSync(path.resolve('', collectionPath), 'utf8'),
             getFileContent: () => exports.Helper.getTemplate(collectionTemplatePath, params.templateProps),
-            message: 'Added to collection.txt',
+            message: 'New file added to collection.txt',
             regexKey: /This projects includes files which is specified at the below[.\n]/g
         };
         exports.Helper.replaceContent(replaceParams);
@@ -58,7 +58,7 @@ exports.Helper = {
         const writeFileProps = {
             dirPath: simpleTextFilePath,
             getFileContent: () => exports.Helper.getTemplate(templatePath, templateProps),
-            message: 'Created new file.'
+            message: 'Created new file.\n\n'
         };
         exports.Helper.writeFile(writeFileProps);
     },

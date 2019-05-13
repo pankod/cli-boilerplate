@@ -13,7 +13,7 @@ console.clear();
 
 console.log(
 	chalk.default(
-		figlet.textSync('plater-cli')
+		figlet.textSync('Pankod CLI Boilerplate')
 	)
 );
 
