@@ -34,13 +34,9 @@ export const Helper = {
 	},
 
 	writeFile: (params: DefinationsModel.IWriteFile) => {
-		fs.writeFile(
+		fs.writeFileSync(
 			path.resolve('', params.dirPath),
-			params.getFileContent(),
-			err => {
-				if (err) throw err;
-				console.log(logSymbols.success, params.message);
-			}
+			params.getFileContent()
 		);
 	},
 

@@ -1,33 +1,12 @@
-import * as inquirer from 'inquirer';
+
 import { Config } from '../../config';
 import { DefinationsModel } from '../../src/definations/Defination';
 import { Helper } from '../../src/definations/helper';
 
-const MemoryFileSystem = require("memory-fs");
-const fs = new MemoryFileSystem();
-
-fs.mkdirpSync("/files/mock");
-fs.writeFileSync("/files/mock/collection.txt", "Hello World");
-fs.writeFileSync("/files/mock/test.txt", "Hello World");
-
-fs.mkdirpSync("/src/templates/mock");
-fs.writeFileSync("/src/templates/mock/simpleText.mustache", "Hello World");
-
 describe('Test Helper constructor', () => {
 
-	test('isAlreadyExist method', () => {
-		const params = {
-			isFile: true,
-			startPath: Config.mockFilesDir,
-			val: 'collection'
-		};
-
-		const result = Helper.isAlreadyExist(params.startPath, params.val, params.isFile);
-		expect(result).toBeTruthy();
-	});
-
 	 test('getTemplate method', () => {
-		const templatePath = './src/templates/simpleText.mustache';
+		const templatePath = '/dir/simpleText.mustache';
 
 		const templateProps = {
 			fileName: 'collection'
@@ -39,13 +18,13 @@ describe('Test Helper constructor', () => {
 	});
 
 	test('writeFile method', () => {
-		const templatePath = './src/templates/mock/simpleText.mustache';
+		const templatePath =  `${Config.mockDir}/simpleText.mustache`;
 
 		const templateProps = {
-			fileName: 'test'
+			fileName: 'Test'
 		};
 
-		const simpleTextFilePath = `${Config.mockFilesDir}/test.txt`;
+		const simpleTextFilePath = `${Config.mockDir}/Test.txt`;
 
 		const writeFileProps: DefinationsModel.IWriteFile = {
 			dirPath: simpleTextFilePath,
@@ -57,7 +36,7 @@ describe('Test Helper constructor', () => {
 
 		const params = {
 			isFile: true,
-			startPath: Config.mockFilesDir,
+			startPath: Config.mockDir,
 			val: 'test'
 		};
 
@@ -67,9 +46,19 @@ describe('Test Helper constructor', () => {
 
 	});
 
-	
+	test('isAlreadyExist method', () => {
+		const params = {
+			isFile: true,
+			startPath: Config.mockDir,
+			val: 'test'
+		};
+
+		const result = Helper.isAlreadyExist(params.startPath, params.val, params.isFile);
+		expect(result).toBeTruthy();
+	});
+
 	test('replaceContent method', () => {
-		const templatePath = './src/templates/mock/simpleText.mustache';
+		const templatePath = `${Config.mockDir}/simpleText.mustache`;
 
 		const templateProps = {
 			fileName: 'collection'
