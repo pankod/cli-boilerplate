@@ -2,26 +2,31 @@ import * as inquirer from 'inquirer';
 import { Config } from '../../config';
 import { DefinationsModel } from '../../src/definations/Defination';
 import { Helper } from '../../src/definations/helper';
-const rimraf = require('rimraf');
+
+const MemoryFileSystem = require("memory-fs");
+const fs = new MemoryFileSystem();
+
+fs.mkdirpSync("/files/mock");
+fs.writeFileSync("/files/mock/collection.txt", "Hello World");
+fs.writeFileSync("/files/mock/test.txt", "Hello World");
+
+fs.mkdirpSync("/src/templates/mock");
+fs.writeFileSync("/src/templates/mock/simpleText.mustache", "Hello World");
 
 describe('Test Helper constructor', () => {
-	it('should CacheHelper be defined', () => {
-		expect(Helper).toBeDefined();
-	});
 
 	test('isAlreadyExist method', () => {
 		const params = {
 			isFile: true,
-			startPath: Config.filesDir,
+			startPath: Config.mockFilesDir,
 			val: 'collection'
 		};
 
 		const result = Helper.isAlreadyExist(params.startPath, params.val, params.isFile);
-
 		expect(result).toBeTruthy();
 	});
 
-	test('getTemplate method', () => {
+	 test('getTemplate method', () => {
 		const templatePath = './src/templates/simpleText.mustache';
 
 		const templateProps = {
@@ -34,7 +39,7 @@ describe('Test Helper constructor', () => {
 	});
 
 	test('writeFile method', () => {
-		const templatePath = './src/templates/simpleText.mustache';
+		const templatePath = './src/templates/mock/simpleText.mustache';
 
 		const templateProps = {
 			fileName: 'test'
@@ -48,26 +53,23 @@ describe('Test Helper constructor', () => {
 			message: 'Created new file.'
 		};
 
+		Helper.writeFile(writeFileProps);
+
 		const params = {
 			isFile: true,
 			startPath: Config.mockFilesDir,
 			val: 'test'
 		};
 
-		const writeFile = Helper.writeFile(writeFileProps);
+		const isExist = Helper.isAlreadyExist(params.startPath, params.val, params.isFile);
 
-		setTimeout( () => {
-			const isExist = Helper.isAlreadyExist(params.startPath, params.val, params.isFile);
-
-			expect(isExist).toBeTruthy();
-
-			rimraf(`${Config.mockFilesDir}/*`, () => { console.log('done'); });
-		},          600);
+		expect(isExist).toBeTruthy();
 
 	});
 
+	
 	test('replaceContent method', () => {
-		const templatePath = './src/templates/simpleText.mustache';
+		const templatePath = './src/templates/mock/simpleText.mustache';
 
 		const templateProps = {
 			fileName: 'collection'
