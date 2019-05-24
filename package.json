@@ -47,7 +47,7 @@
    "**/*.spec.(ts|js)"
   ],
   "setupFiles": [
-    "./test/unit/mock.setup.js"
+   "./test/unit/mock.setup.js"
   ],
   "globals": {
    "ts-jest": {

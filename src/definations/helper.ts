@@ -25,14 +25,6 @@ export const Helper = {
 		)
 	),
 
-	createFile: (dirPath: string): void => {
-		try {
-			fs.mkdirSync(path.resolve('', dirPath));
-		} catch (error) {
-			console.log(error);
-		}
-	},
-
 	writeFile: (params: DefinationsModel.IWriteFile) => {
 		fs.writeFileSync(
 			path.resolve('', params.dirPath),
