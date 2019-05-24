@@ -7,7 +7,7 @@ import * as path from 'path';
 describe('Test Helper constructor', () => {
 
 	 test('getTemplate method', () => {
-		const templatePath = '/dir/simpleText.mustache';
+		const templatePath = `${Config.mockDir}/simpleText.mustache`;
 
 		const templateProps = {
 			fileName: 'collection'
