@@ -2,26 +2,21 @@ import * as inquirer from 'inquirer';
 import { Helper } from '../definations/helper';
 import { Config } from '../../config';
 
+
+
 export module Common {
 
-	export const commonValues = {
-		st_message: 'Enter file name',
-		st_name: 'fileName',
-		st_type: 'input',
-		ac_message: 'Enter file name',
-		ac_name: 'fileName',
-		ac_type: 'input'
-	}
+	export const firstQuestion = {
+		message: 'Enter file name',
+		name: 'fileName',
+		type: 'input',
+		validate(val: string) {
+			return Common.validate(val);
+		}
+	};
 
 	export const simpleTextQuestions = [
-		{
-			message: Common.commonValues.st_message,
-			name: Common.commonValues.st_name,
-			type: Common.commonValues.st_type,
-			validate(val: string): string | boolean {
-				return Common.validate(val);
-			}
-		},
+		Common.firstQuestion,
 		{
 			default: false,
 			message: 'Do you want to add file name into file content ?',
@@ -31,14 +26,7 @@ export module Common {
 	];
 
 	export const addCollectionQuestions = [
-		{
-			message: Common.commonValues.ac_message,
-			name: Common.commonValues.ac_name,
-			type: Common.commonValues.ac_type,
-			validate(val: string): string | boolean {
-				return Common.validate(val);
-			}
-		},
+		Common.firstQuestion,
 		{
 			choices: [
 				new inquirer.Separator(),
