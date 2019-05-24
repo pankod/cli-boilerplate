@@ -6,7 +6,7 @@ import { Config } from '../../config';
 
 export module Common {
 
-	export const firstQuestion = {
+	export const fileNameQuestion = {
 		message: 'Enter file name',
 		name: 'fileName',
 		type: 'input',
@@ -16,7 +16,7 @@ export module Common {
 	};
 
 	export const simpleTextQuestions = [
-		Common.firstQuestion,
+		Common.fileNameQuestion,
 		{
 			default: false,
 			message: 'Do you want to add file name into file content ?',
@@ -26,7 +26,7 @@ export module Common {
 	];
 
 	export const addCollectionQuestions = [
-		Common.firstQuestion,
+		Common.fileNameQuestion,
 		{
 			choices: [
 				new inquirer.Separator(),
