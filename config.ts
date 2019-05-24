@@ -1,4 +1,6 @@
 export const Config = {
 	filesDir: './files',
-	mockFilesDir: './files/mock'
+	mockDir: '/dir',
+	mockSrcDir: '/src',
+	mockFilesDir: '/files',
 };
