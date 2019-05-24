@@ -33,8 +33,8 @@ export module Common {
 	export const addCollectionQuestions = [
 		{
 			message: Common.commonValues.ac_message,
-			name: Common.commonValues.ac_message,
-			type: Common.commonValues.ac_message,
+			name: Common.commonValues.st_name,
+			type: Common.commonValues.st_type,
 			validate(val: string): string | boolean {
 				return Common.validate(val);
 			}
