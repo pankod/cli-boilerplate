@@ -1,61 +1,12 @@
 import * as inquirer from 'inquirer';
-import { Config } from '../../config';
 import { DefinationsModel } from './Defination';
 import { Helper } from './helper';
+import { Common } from './common';
 
 export const addCollectionQuestion = {
 	showQuestions: async (): Promise<void> => {
-
-		const questions = [
-			{
-				message: 'Enter file name',
-				name: 'fileName',
-				type: 'input',
-				validate(val: string): string | boolean {
-					if (val.length) {
-						if (
-							Helper.isAlreadyExist(
-								Config.filesDir,
-								val,
-								true
-							)
-						) {
-							return 'This file name already used before, enter new name.';
-						}
-
-						return true;
-					}
-
-					return 'Can not be empty';
-				}
-			},
-			{
-				choices: [
-					new inquirer.Separator(),
-					{
-						name: 'Yes, I want to enter custom name file.',
-						value: true
-					},
-					{
-						name: 'No, use default file name.',
-						value: false
-					}
-				],
-				default: false,
-				message: 'Would you like save file to collection.ts with a custom name?',
-				name: 'isCustomFileName',
-				type: 'list'
-			},
-			{
-				message: 'Enter custom name',
-				name: 'customFileName',
-				type: 'input',
-				when: ({ isCustomFileName }) => isCustomFileName
-			}
-		];
-
 		// tslint:disable-next-line:max-line-length
-		const answers: DefinationsModel.IAnswers = await inquirer.prompt<{ fileName: string, isCustomFileName: boolean, customFileName?: string}>(questions);
+		const answers: DefinationsModel.IAnswers = await inquirer.prompt<{ fileName: string, isCustomFileName: boolean, customFileName?: string}>(Common.addCollectionQuestions);
 
 		answers.fileName = answers.fileName.replace(/\b\w/g, foo => foo.toUpperCase());
 
@@ -64,9 +15,7 @@ export const addCollectionQuestion = {
 			isFileNameAdd: true
 		};
 
-		if (answers.isCustomFileName) {
-			opt.customFileName = answers.customFileName;
-		}
+		answers.isCustomFileName ? opt.customFileName = answers.customFileName : undefined;
 
 		Helper.createNewAddCollecton(answers, opt);
 	}
