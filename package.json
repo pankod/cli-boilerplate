@@ -43,6 +43,9 @@
   "transform": {
    "^.+\\.(ts|tsx)$": "ts-jest"
   },
+  "testPathIgnorePatterns": [
+	  "dist"
+  ],
   "testMatch": [
    "**/*.spec.(ts|js)"
   ],

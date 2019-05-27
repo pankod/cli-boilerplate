@@ -6,7 +6,7 @@ import * as path from 'path';
 
 describe('Test Helper constructor', () => {
 
-	 test('getTemplate method', () => {
+	test('getTemplate method', () => {
 		const templatePath = `${Config.mockDir}/simpleText.mustache`;
 
 		const templateProps = {
@@ -19,7 +19,7 @@ describe('Test Helper constructor', () => {
 	});
 
 	test('writeFile method', () => {
-		const templatePath =  `${Config.mockDir}/simpleText.mustache`;
+		const templatePath = `${Config.mockDir}/simpleText.mustache`;
 
 		const templateProps = {
 			fileName: 'Test'
@@ -33,8 +33,25 @@ describe('Test Helper constructor', () => {
 			message: 'Created new file.'
 		};
 
-		Helper.writeFile(writeFileProps);
+		expect(() => Helper.writeFile(writeFileProps)).not.toThrowError();
+	});
 
+	test('writeFile method throw exception', () => {
+		const templatePath = `${Config.mockDir}/simpleText.mustache`;
+
+		const templateProps = {
+			fileName: 'Test'
+		};
+
+		const simpleTextFilePath = ``;
+
+		const writeFileProps: DefinationsModel.IWriteFile = {
+			dirPath: simpleTextFilePath,
+			getFileContent: () => Helper.getTemplate(templatePath, templateProps),
+			message: 'Created new file throw.'
+		};
+
+		expect(() => Helper.writeFile(writeFileProps)).toThrowError();
 	});
 
 	test('isAlreadyExist method', () => {
@@ -106,7 +123,7 @@ describe('Test Helper constructor', () => {
 		expect(result).toBeTruthy();
 	});
 
-	 test('addToCollection method', () => {
+	test('addToCollection method', () => {
 
 		const templateProps = {
 			fileName: 'Test1',
@@ -118,7 +135,7 @@ describe('Test Helper constructor', () => {
 		const addCollParams = {
 			templateProps
 		};
-	
+
 		Helper.addToCollection(addCollParams);
 
 		const collectionPath = `${Config.mockFilesDir}/collection.txt`;
@@ -128,9 +145,9 @@ describe('Test Helper constructor', () => {
 		expect(result).toEqual(expectedResult);
 	});
 
-	test('createNewAddCollecton method', () => {		
-		const answers: DefinationsModel.IAnswers = { 
-			fileName: 'Test1', 
+	test('createNewAddCollecton method', () => {
+		const answers: DefinationsModel.IAnswers = {
+			fileName: 'Test1',
 			isCustomFileName: false,
 			isFileNameAdd: true
 		};

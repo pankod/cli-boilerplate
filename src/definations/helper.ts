@@ -32,8 +32,7 @@ export const Helper = {
 			console.log(logSymbols.success, params.message);
 
 		} catch (err) {
-			if (err) throw err;
-
+			throw err;
 		}
 	},
 
