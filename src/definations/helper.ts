@@ -24,14 +24,17 @@ export const Helper = {
 	),
 
 	writeFile: (params: DefinationsModel.IWriteFile) => {
-		fs.writeFile(
-			path.resolve('', params.dirPath),
-			params.getFileContent(),
-			err => {
-				if (err) throw err;
-				console.log(logSymbols.success, params.message);
-			}
-		);
+		try {
+			fs.writeFileSync(
+				path.resolve('', params.dirPath),
+				params.getFileContent()
+			);
+			console.log(logSymbols.success, params.message);
+
+		} catch (err) {
+			if (err) throw err;
+
+		}
 	},
 
 	replaceContent: (params: DefinationsModel.IReplaceContent): void => {
