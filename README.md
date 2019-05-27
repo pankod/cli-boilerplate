@@ -12,9 +12,12 @@ CLI boilerplate for create  project file and content with predefined templates f
 <br/>
 
 <div align="center">
-  <!-- CodeCov -->
-  <a href="https://codecov.io/gh/pankod/cli-boilerplate">
-    <img src="https://codecov.io/gh/pankod/cli-boilerplate/branch/master/graph/badge.svg" />
+    <!-- Code Climate -->
+  <a href="https://codeclimate.com/github/pankod/cli-boilerplate/maintainability">
+	<img src="https://api.codeclimate.com/v1/badges/ae7611b90e9c2121eed6/maintainability" />
+  </a>
+  <a href="https://codeclimate.com/github/pankod/cli-boilerplate/test_coverage">
+  	<img src="https://api.codeclimate.com/v1/badges/ae7611b90e9c2121eed6/test_coverage" />
   </a>
   <!-- Build Status -->
   <a href="https://travis-ci.org/pankod/cli-boilerplate">
@@ -25,7 +28,7 @@ CLI boilerplate for create  project file and content with predefined templates f
     <img src="https://david-dm.org/pankod/cli-boilerplate.svg" alt="Dependency Status" />
   </a>
   <!-- devDependency Status -->
-  <a href="https://david-dm.org/pankod/cli-boilerplate#info=devDependencies"> 
+  <a href="https://david-dm.org/pankod/cli-boilerplate#info=devDependencies">
     <img src="https://david-dm.org/pankod/cli-boilerplate/dev-status.svg" alt="devDependency Status" />
   </a>
 </div>
@@ -40,10 +43,10 @@ CLI boilerplate for create  project file and content with predefined templates f
 
 ## About
 
- By using the CLI tool, you may easily: 
+ By using the CLI tool, you may easily:
 
    - Create new files and folders with any file extension,
-   
+
   -  Add predefined content to newly created file by using built-in mustache templating engine.
 
   - Append new line of content on the desired position to existing file by using regex algorithms.
