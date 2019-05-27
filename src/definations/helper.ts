@@ -2,10 +2,8 @@ import * as fs from 'fs';
 import * as logSymbols from 'log-symbols';
 import * as mustache from 'mustache';
 import * as path from 'path';
-
-import { DefinationsModel } from './Defination';
-
 import { Config } from '../../config';
+import { DefinationsModel } from './Defination';
 
 export const Helper = {
 
@@ -26,9 +24,13 @@ export const Helper = {
 	),
 
 	writeFile: (params: DefinationsModel.IWriteFile) => {
-		fs.writeFileSync(
+		fs.writeFile(
 			path.resolve('', params.dirPath),
-			params.getFileContent()
+			params.getFileContent(),
+			err => {
+				if (err) throw err;
+				console.log(logSymbols.success, params.message);
+			}
 		);
 	},
 
