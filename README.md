@@ -43,6 +43,8 @@ CLI boilerplate for create  project file and content with predefined templates f
 
 ## About
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/pankod/cli-boilerplate.svg)](https://greenkeeper.io/)
+
  By using the CLI tool, you may easily:
 
    - Create new files and folders with any file extension,
