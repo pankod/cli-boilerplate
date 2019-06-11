@@ -129,7 +129,7 @@ Generate string content from template
 
 Send the string content to fs module method
 
-11Append content to the existing file
+Append content to the existing file
 ```
 
 
