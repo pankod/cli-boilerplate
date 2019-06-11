@@ -43,7 +43,7 @@ CLI boilerplate for create  project file and content with predefined templates f
 
 ## About
 
- By using the CLI tool, you may easily:
+ By using the CLI tool, you may quickly:
 
    - Create new files and folders with any file extension,
 
@@ -63,7 +63,7 @@ Run the following method:
 npm install
 ```
 <br/>
-Once the installation is done, you should run the following command for compile Typescript:
+Once the installation is done, you should run the following command for compiling Typescript:
 
  ```
  npm run build
@@ -72,7 +72,7 @@ Once the installation is done, you should run the following command for compile 
  It saves javascript files to dist folder.
 
 <br/>
-Run the following command for compile typescript code anytime you made changes in code:
+Run the following command for compiling Typescript code anytime you made changes in the code:
 
  ```
  npm run watch
@@ -87,15 +87,15 @@ Run the following command for compile typescript code anytime you made changes i
 <br/>
 
 
-#### To customize helper-cli-boilerplate according to the needs of your project:
+#### To customize cli-boilerplate according to the needs of your project:
 
-- Add a new mustache template to templates folder and define file path to methods in helper.ts.
+- Add a new mustache template to the templates folder and define file path to methods in helper.ts.
 
-    More info about [mustache.js](https://github.com/janl/mustache.js)
+    > More info about [mustache.js](https://github.com/janl/mustache.js)
 
-- Define file path into config.ts
+- Define file path into config.ts.
 
-- You should define new regex keys in order to catch existing content and append new content to spesicific position in the file which is already exist.
+- You should define new regex keys in order to catch existing content and append new content to a spesicific position in the file which is already exist.
 
 
 <br/>
@@ -104,12 +104,33 @@ Run the following command for compile typescript code anytime you made changes i
 
 - To create new file:
 
-Set file name -> Send properties to template method -> Define file path -> Generate string content from template -> Send the string content to fs module method -> Create new file with predefined content.
+```
+Set file name
 
-- To append content to existing file:
+Send properties to template method
 
- Set regex key for catch spesific position in the file content.
-    -> Send properties to template method -> Generate string content from template
-      -> Send the string content to fs module method -> Append content to existing file.
+Define file path
+
+Generate string content from template
+
+Send the string content to fs module method
+
+Create new file with predefined content
+````
+
+
+- To append content to the existing file:
+```
+Set regex key for catching spesific position in the file content
+
+Send properties to template method
+
+Generate string content from template
+
+Send the string content to fs module method
+
+11Append content to the existing file
+```
+
 
 
